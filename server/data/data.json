@@ -371,6 +371,26 @@
       "githubUrl": "https://github.com/kingggg5/company_web",
       "liveUrl": "",
       "id": "mjl767y2kcnt0kafnm"
+    },
+    {
+      "title": "MATCHA SHOP",
+      "category": "PERSONAL PROJECT",
+      "description": "a modern, high-end interface featuring a Glassmorphism design language with a Dark-Green color palette and smooth CSS animations for an enhanced user experience.",
+      "fullDescription": "a modern, high-end interface featuring a Glassmorphism design language with a Dark-Green color palette and smooth CSS animations for an enhanced user experience. Developed a high-performance backend leveraging PHP 8 for core business logic and Node.js for real-time processing, managed via Composer and NPM.",
+      "image": "/public/images/projects/project11.png",
+      "images": [
+        "/public/images/projects/project11.png"
+      ],
+      "tags": [
+        "PHP",
+        "Node.js",
+        "Vue",
+        "JavaScript",
+        "MongoDB"
+      ],
+      "githubUrl": "https://github.com/kingggg5/matcha1",
+      "liveUrl": "",
+      "id": "mjl7ktustxuszx04w9"
     }
   ],
   "experience": [
@@ -438,7 +458,7 @@
     "lineId": "@king51131",
     "location": "Bangkok, Thailand / Remote",
     "headline": "Get In Touch",
-    "subheadline": "Have a project in mind or just want to say hi? I'm always open to discussing new opportunities.",
+    "subheadline": "I'm always open to discussing new opportunities.",
     "ctaText": "Let's build something together",
     "availability": "I'm currently available for contact work and open to full-time opportunities. If you have a question or just want to connect, feel free to reach out.",
     "socials": {
