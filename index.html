@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Developer Portfolio</title>
+    <meta name="description" content="Full Stack Developer Portfolio - Building scalable web applications" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Source+Code+Pro:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1c242e",
+                        "surface-border": "#283039",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "mono": ["Source Code Pro", "monospace"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101922;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #283039;
+            border-radius: 4px;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .code-bg {
+            background-image: radial-gradient(#283039 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark font-display text-white">
+
+    <header class="sticky top-0 z-50 border-b border-surface-border bg-background-dark/90 backdrop-blur-md">
+        <div class="max-w-[1200px] mx-auto px-4 md:px-10 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="size-8 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <span class="material-symbols-outlined">terminal</span>
+                </div>
+                <h2 id="siteName" class="text-lg font-bold">DevPortfolio</h2>
+            </div>
+            <div class="flex items-center gap-8">
+                <nav class="hidden md:flex items-center gap-6">
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#about">About</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#skills">Skills</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#projects">Projects</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors"
+                        href="#experience">Experience</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors" href="#contact">Contact</a>
+                </nav>
+                <a id="resumeBtn" href="#" download
+                    class="flex items-center gap-2 px-4 h-10 bg-primary hover:bg-primary/90 rounded-lg text-sm font-bold transition-colors">
+                    <span class="material-symbols-outlined text-[18px]">download</span>
+                    Resume
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="min-h-screen flex items-center py-20 px-4 md:px-10 lg:px-20">
+        <div class="max-w-[1200px] mx-auto w-full">
+            <div class="flex flex-col-reverse lg:flex-row items-center gap-12">
+                <div class="flex-1 flex flex-col gap-6">
+                    <div id="statusBadge" class="hidden">
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-dark border border-surface-border">
+                            <span
+                                class="material-symbols-outlined text-green-500 text-[16px]">fiber_manual_record</span>
+                            <span id="statusText" class="text-sm font-medium">Open to work</span>
+                        </div>
+                    </div>
+                    <h1 id="heroHeadline"
+                        class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight">Loading...</h1>
+                    <p id="heroSubheadline" class="text-lg text-slate-400 leading-relaxed max-w-2xl">Loading...</p>
+                    <div class="flex flex-wrap gap-4 mt-4">
+                        <a id="ctaPrimary" href="#projects"
+                            class="flex items-center justify-center px-6 h-12 bg-primary hover:bg-primary/90 rounded-lg text-base font-bold transition-all shadow-lg shadow-primary/20">View
+                            My Work</a>
+                        <a id="ctaSecondary" href="#contact"
+                            class="flex items-center justify-center px-6 h-12 bg-surface-dark border border-surface-border hover:bg-surface-border rounded-lg text-base font-bold transition-all">Get
+                            in Touch</a>
+                    </div>
+                    <div class="pt-6 border-t border-surface-border mt-4">
+                        <p class="text-sm text-slate-400 mb-4">Find me on</p>
+                        <div id="socialLinks" class="flex gap-4"></div>
+                    </div>
+                </div>
+                <div class="flex-shrink-0">
+                    <div class="relative">
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-r from-primary/20 to-purple-500/20 rounded-full blur-2xl">
+                        </div>
+                        <div id="heroImage"
+                            class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-cover bg-center border-4 border-primary/30 animate-float shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 md:px-10 lg:px-20 code-bg">
+        <div class="max-w-[1000px] mx-auto">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="flex-1">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+                        <span class="material-symbols-outlined text-primary text-sm">code</span>
+                        <span id="aboutTagline"
+                            class="text-primary text-xs font-bold uppercase tracking-wide">Full-Stack Developer</span>
+                    </div>
+                    <h2 id="aboutHeadline" class="text-3xl md:text-4xl font-black mb-6 leading-tight">Loading...</h2>
+                    <p id="aboutDescription" class="text-slate-400 text-lg leading-relaxed mb-6">Loading...</p>
+                    <p id="aboutJourney" class="text-slate-400 leading-relaxed mb-6"></p>
+                    <div class="bg-surface-dark border-l-4 border-primary p-4 rounded-r-lg mb-6">
+                        <p id="aboutQuote" class="italic text-slate-300 font-medium"></p>
+                    </div>
+                </div>
+                <div class="lg:w-80 flex flex-col gap-4">
+                    <h3 class="text-sm font-bold uppercase tracking-wider flex items-center gap-2 text-slate-400">
+                        <span class="material-symbols-outlined text-primary">analytics</span> Impact Metrics
+                    </h3>
+                    <div id="metricsContainer" class="flex flex-col gap-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-4 md:px-10 lg:px-20">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black mb-4">
+                    <span class="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Technical
+                        Expertise</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">A comprehensive overview of my development stack</p>
+            </div>
+            <div id="skillsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-4 md:px-10 lg:px-20 bg-surface-dark/30">
+        <div class="max-w-[1200px] mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black mb-4">
+                    <span class="bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">Featured
+                        Projects</span>
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Click on a project to see full details</p>
+            </div>
+            <div id="projectsGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-8"></div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 px-4 md:px-10 lg:px-20">
+        <div class="max-w-[1000px] mx-auto">
+            <div class="mb-12">
+                <div class="border-l-4 border-primary pl-6">
+                    <h2 class="text-3xl md:text-4xl font-black mb-2">Professional Experience</h2>
+                    <p class="text-slate-400 font-mono flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">history</span>
+                        Commit History & Career Trajectory
+                    </p>
+                </div>
+            </div>
+            <div id="experienceTimeline" class="relative">
+                <div class="absolute left-[28px] top-4 bottom-0 w-[2px] bg-surface-border"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 md:px-10 lg:px-20 bg-surface-dark/30">
+        <div class="max-w-[960px] mx-auto">
+            <div class="text-center mb-12">
+                <h2 id="contactHeadline" class="text-3xl md:text-4xl font-black mb-4">Get In Touch</h2>
+                <p id="contactSubheadline" class="text-slate-400 text-lg max-w-2xl mx-auto">Have a project in mind?</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="flex flex-col gap-6">
+                    <p id="contactAvailability" class="text-slate-400 leading-relaxed"></p>
+                    <div class="flex flex-col gap-4">
+                        <div
+                            class="flex items-center gap-4 rounded-lg border border-surface-border bg-surface-dark p-4 hover:-translate-y-1 transition-transform">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Email</span>
+                                <a id="contactEmail" href="mailto:"
+                                    class="block font-medium hover:text-primary transition-colors">-</a>
+                            </div>
+                        </div>
+                        <div id="phoneCard"
+                            class="hidden flex items-center gap-4 rounded-lg border border-surface-border bg-surface-dark p-4 hover:-translate-y-1 transition-transform">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-500/10 text-green-500">
+                                <span class="material-symbols-outlined">call</span>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Phone</span>
+                                <a id="contactPhone" href="tel:"
+                                    class="block font-medium hover:text-primary transition-colors">-</a>
+                            </div>
+                        </div>
+                        <div id="lineCard"
+                            class="hidden flex items-center gap-4 rounded-lg border border-surface-border bg-surface-dark p-4 hover:-translate-y-1 transition-transform">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-lg bg-green-400/10 text-green-400">
+                                <span class="material-symbols-outlined">chat</span>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Line ID</span>
+                                <span id="contactLine" class="block font-medium">-</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 rounded-lg border border-surface-border bg-surface-dark p-4 hover:-translate-y-1 transition-transform">
+                            <div
+                                class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Location</span>
+                                <span id="contactLocation" class="block font-medium">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <span class="text-base font-bold">Connect with me</span>
+                        <div id="contactSocials" class="flex gap-3"></div>
+                    </div>
+                </div>
+                <div class="bg-surface-dark rounded-xl border border-surface-border p-6 md:p-8">
+                    <form id="contactForm" class="flex flex-col gap-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <label class="flex flex-col gap-2">
+                                <span class="text-sm font-medium">Name</span>
+                                <input
+                                    class="w-full rounded-lg border border-surface-border bg-background-dark px-4 py-3 text-white placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+                                    placeholder="Your Name" type="text" />
+                            </label>
+                            <label class="flex flex-col gap-2">
+                                <span class="text-sm font-medium">Email</span>
+                                <input
+                                    class="w-full rounded-lg border border-surface-border bg-background-dark px-4 py-3 text-white placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none"
+                                    placeholder="your@email.com" type="email" />
+                            </label>
+                        </div>
+                        <label class="flex flex-col gap-2">
+                            <span class="text-sm font-medium">Message</span>
+                            <textarea
+                                class="w-full rounded-lg border border-surface-border bg-background-dark px-4 py-3 text-white placeholder-slate-400 focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none"
+                                placeholder="Tell me about your project..." rows="4"></textarea>
+                        </label>
+                        <button
+                            class="flex items-center justify-center gap-2 w-full rounded-lg bg-primary px-6 py-3.5 text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all"
+                            type="button">
+                            <span>Send Message</span>
+                            <span class="material-symbols-outlined text-[20px]">send</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-4 border-t border-surface-border">
+        <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2 text-slate-400">
+                <span class="material-symbols-outlined text-lg">copyright</span>
+                <p id="footerText" class="text-sm">2024 DevPortfolio</p>
+            </div>
+            <a href="/admin" class="text-slate-400 hover:text-primary text-sm transition-colors">Admin Panel</a>
+        </div>
+    </footer>
+
+    <div id="projectModal"
+        class="hidden fixed inset-0 z-[100] bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
+        <div
+            class="bg-surface-dark rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-surface-border shadow-2xl">
+            <div
+                class="sticky top-0 bg-surface-dark border-b border-surface-border px-6 py-4 flex items-center justify-between z-10">
+                <div>
+                    <p id="modalCategory" class="text-primary text-xs font-bold uppercase tracking-wider">Project</p>
+                    <h3 id="modalTitle" class="text-2xl font-bold">Project Title</h3>
+                </div>
+                <button onclick="closeProjectModal()"
+                    class="p-2 rounded-full hover:bg-surface-border transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="mb-6">
+                    <div id="modalMainImage" class="w-full h-64 md:h-80 bg-cover bg-center rounded-xl mb-4"></div>
+                    <div id="modalGallery" class="flex gap-3 overflow-x-auto pb-2"></div>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold mb-3">About this project</h4>
+                    <p id="modalDescription" class="text-slate-300 leading-relaxed"></p>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold mb-3">Technologies</h4>
+                    <div id="modalTags" class="flex flex-wrap gap-2"></div>
+                </div>
+                <div class="flex gap-4 pt-4 border-t border-surface-border">
+                    <a id="modalGithub" href="#" target="_blank"
+                        class="flex items-center gap-2 px-6 py-3 bg-surface-border hover:bg-primary/20 rounded-lg font-bold transition-colors">
+                        <span class="material-symbols-outlined">code</span> View Code
+                    </a>
+                    <a id="modalLive" href="#" target="_blank"
+                        class="flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 rounded-lg font-bold transition-colors">
+                        <span class="material-symbols-outlined">open_in_new</span> Link
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/public/js/portfolio.js"></script>
+</body>
+
+</html>

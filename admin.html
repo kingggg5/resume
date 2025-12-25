@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Dashboard - Portfolio CMS</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-dark": "#101922",
+                        "surface-dark": "#1c242e",
+                        "surface-border": "#2d3748",
+                    },
+                    fontFamily: { "display": ["Manrope", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101922;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2d3748;
+            border-radius: 4px;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark font-display text-white overflow-hidden">
+    <div class="flex h-screen w-full">
+        <!-- Sidebar -->
+        <aside
+            class="w-64 flex-shrink-0 border-r border-surface-border bg-background-dark hidden md:flex flex-col justify-between h-full">
+            <div class="flex flex-col p-4 gap-6">
+                <div class="flex items-center gap-3 px-2">
+                    <div id="sidebarAvatar"
+                        class="bg-center bg-no-repeat bg-cover rounded-full h-12 w-12 border-2 border-surface-border bg-slate-700">
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 id="sidebarName" class="text-white text-base font-bold leading-tight">Admin CMS</h1>
+                        <p id="sidebarTitle" class="text-slate-400 text-xs font-medium">Portfolio Manager</p>
+                    </div>
+                </div>
+                <nav id="navMenu" class="flex flex-col gap-1">
+                    <button onclick="showTab('dashboard')"
+                        class="nav-btn active flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors"
+                        data-tab="dashboard">
+                        <span class="material-symbols-outlined text-[20px]">dashboard</span>
+                        <span class="text-sm font-medium">Dashboard</span>
+                    </button>
+                    <button onclick="showTab('hero')"
+                        class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors"
+                        data-tab="hero">
+                        <span class="material-symbols-outlined text-[20px]">home</span>
+                        <span class="text-sm font-medium">Hero Section</span>
+                    </button>
+                    <button onclick="showTab('about')"
+                        class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors"
+                        data-tab="about">
+                        <span class="material-symbols-outlined text-[20px]">person</span>
+                        <span class="text-sm font-medium">About</span>
+                    </button>
+                    <button onclick="showTab('skills')"
+                        class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors"
+                        data-tab="skills">
+                        <span class="material-symbols-outlined text-[20px]">code</span>
+                        <span class="text-sm font-medium">Skills</span>
+                    </button>
+                    <button onclick="showTab('projects')"
+                        class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors"
+                        data-tab="projects">
+                        <span class="material-symbols-outlined text-[20px]">folder</span>
+                        <span class="text-sm font-medium">Projects</span>
+                    </button>
+                    <button onclick="showTab('experience')"
+                        class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors"
+                        data-tab="experience">
+                        <span class="material-symbols-outlined text-[20px]">work</span>
+                        <span class="text-sm font-medium">Experience</span>
+                    </button>
+                    <button onclick="showTab('contact')"
+                        class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors"
+                        data-tab="contact">
+                        <span class="material-symbols-outlined text-[20px]">mail</span>
+                        <span class="text-sm font-medium">Contact</span>
+                    </button>
+                    <button onclick="showTab('settings')"
+                        class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors"
+                        data-tab="settings">
+                        <span class="material-symbols-outlined text-[20px]">settings</span>
+                        <span class="text-sm font-medium">Settings</span>
+                    </button>
+                </nav>
+            </div>
+            <div class="p-4 border-t border-surface-border">
+                <a href="/"
+                    class="flex w-full items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-white hover:bg-surface-dark transition-colors">
+                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                    <span class="text-sm font-medium">View Site</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col h-full overflow-hidden relative">
+            <div class="flex-1 overflow-y-auto p-6 md:p-8">
+                <div class="max-w-[1000px] mx-auto">
+
+                    <!-- Dashboard Tab -->
+                    <div id="tab-dashboard" class="tab-content active">
+                        <h2 class="text-3xl font-black mb-2">Dashboard</h2>
+                        <p class="text-slate-400 mb-8">Manage your portfolio content</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-surface-dark border border-surface-border rounded-xl p-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-slate-400 text-sm">Total Projects</span>
+                                    <span class="bg-primary/10 text-primary p-2 rounded-lg"><span
+                                            class="material-symbols-outlined text-[20px]">folder</span></span>
+                                </div>
+                                <span id="statProjects" class="text-3xl font-bold">0</span>
+                            </div>
+                            <div class="bg-surface-dark border border-surface-border rounded-xl p-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-slate-400 text-sm">Total Skills</span>
+                                    <span class="bg-primary/10 text-primary p-2 rounded-lg"><span
+                                            class="material-symbols-outlined text-[20px]">code</span></span>
+                                </div>
+                                <span id="statSkills" class="text-3xl font-bold">0</span>
+                            </div>
+                            <div class="bg-surface-dark border border-surface-border rounded-xl p-6">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-slate-400 text-sm">Experience</span>
+                                    <span class="bg-primary/10 text-primary p-2 rounded-lg"><span
+                                            class="material-symbols-outlined text-[20px]">work</span></span>
+                                </div>
+                                <span id="statExperience" class="text-3xl font-bold">0</span>
+                            </div>
+                        </div>
+                        <div class="bg-surface-dark border border-surface-border rounded-xl p-6">
+                            <h3 class="text-lg font-bold mb-4">Quick Actions</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <button onclick="showTab('hero')"
+                                    class="p-4 bg-background-dark border border-surface-border rounded-lg hover:border-primary/50 transition-colors text-center">
+                                    <span class="material-symbols-outlined text-primary mb-2">home</span>
+                                    <p class="text-sm">Edit Hero</p>
+                                </button>
+                                <button onclick="showTab('projects')"
+                                    class="p-4 bg-background-dark border border-surface-border rounded-lg hover:border-primary/50 transition-colors text-center">
+                                    <span class="material-symbols-outlined text-primary mb-2">add</span>
+                                    <p class="text-sm">Add Project</p>
+                                </button>
+                                <button onclick="showTab('skills')"
+                                    class="p-4 bg-background-dark border border-surface-border rounded-lg hover:border-primary/50 transition-colors text-center">
+                                    <span class="material-symbols-outlined text-primary mb-2">code</span>
+                                    <p class="text-sm">Add Skill</p>
+                                </button>
+                                <button onclick="showTab('experience')"
+                                    class="p-4 bg-background-dark border border-surface-border rounded-lg hover:border-primary/50 transition-colors text-center">
+                                    <span class="material-symbols-outlined text-primary mb-2">work</span>
+                                    <p class="text-sm">Add Experience</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Tab -->
+                    <div id="tab-hero" class="tab-content">
+                        <h2 class="text-3xl font-black mb-2">Hero Section</h2>
+                        <p class="text-slate-400 mb-8">Edit the main landing section</p>
+                        <div class="bg-surface-dark border border-surface-border rounded-xl p-6">
+                            <div class="grid gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Headline</label>
+                                    <input id="heroHeadline"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="text" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Subheadline</label>
+                                    <textarea id="heroSubheadline"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                                        rows="3"></textarea>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Status
+                                            Text</label>
+                                        <input id="heroStatusText"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Status
+                                            Active</label>
+                                        <select id="heroStatusActive"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm">
+                                            <option value="true">Active</option>
+                                            <option value="false">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Primary
+                                            CTA</label>
+                                        <input id="heroCtaPrimary"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Secondary
+                                            CTA</label>
+                                        <input id="heroCtaSecondary"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Hero Image
+                                        URL</label>
+                                    <input id="heroImage"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="url" />
+                                </div>
+                                <button onclick="saveHero()"
+                                    class="w-full py-2.5 bg-primary hover:bg-primary/90 rounded-lg text-sm font-bold mt-2">Save
+                                    Hero</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About Tab -->
+                    <div id="tab-about" class="tab-content">
+                        <h2 class="text-3xl font-black mb-2">About Section</h2>
+                        <p class="text-slate-400 mb-8">Edit your personal information</p>
+                        <div class="bg-surface-dark border border-surface-border rounded-xl p-6">
+                            <div class="grid gap-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Name</label>
+                                        <input id="profileName"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Title</label>
+                                        <input id="profileTitle"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Short Bio</label>
+                                    <textarea id="profileBio"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                                        rows="2"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Tagline</label>
+                                    <input id="aboutTagline"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="text" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">About
+                                        Headline</label>
+                                    <input id="aboutHeadline"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="text" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Description</label>
+                                    <textarea id="aboutDescription"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                                        rows="3"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">My Journey</label>
+                                    <textarea id="aboutJourney"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                                        rows="3"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Quote</label>
+                                    <input id="aboutQuote"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="text" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Avatar URL</label>
+                                    <input id="profileAvatar"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="url" />
+                                </div>
+                                <button onclick="saveAbout()"
+                                    class="w-full py-2.5 bg-primary hover:bg-primary/90 rounded-lg text-sm font-bold mt-2">Save
+                                    About</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Tab -->
+                    <div id="tab-skills" class="tab-content">
+                        <div class="flex justify-between items-center mb-8">
+                            <div>
+                                <h2 class="text-3xl font-black mb-2">Skills</h2>
+                                <p class="text-slate-400">Manage your technical skills</p>
+                            </div>
+                            <button onclick="showSkillModal()"
+                                class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 rounded-lg flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">add</span> Add Skill
+                            </button>
+                        </div>
+                        <div id="skillsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Skills rendered here -->
+                        </div>
+                    </div>
+
+                    <!-- Projects Tab -->
+                    <div id="tab-projects" class="tab-content">
+                        <div class="flex justify-between items-center mb-8">
+                            <div>
+                                <h2 class="text-3xl font-black mb-2">Projects</h2>
+                                <p class="text-slate-400">Manage your portfolio projects</p>
+                            </div>
+                            <button onclick="showProjectModal()"
+                                class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 rounded-lg flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">add</span> Add Project
+                            </button>
+                        </div>
+                        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Projects rendered here -->
+                        </div>
+                    </div>
+
+                    <!-- Experience Tab -->
+                    <div id="tab-experience" class="tab-content">
+                        <div class="flex justify-between items-center mb-8">
+                            <div>
+                                <h2 class="text-3xl font-black mb-2">Experience</h2>
+                                <p class="text-slate-400">Manage your work history</p>
+                            </div>
+                            <button onclick="showExperienceModal()"
+                                class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-4 py-2 rounded-lg flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px]">add</span> Add Experience
+                            </button>
+                        </div>
+                        <div id="experienceList" class="space-y-4">
+                            <!-- Experience rendered here -->
+                        </div>
+                    </div>
+
+                    <!-- Contact Tab -->
+                    <div id="tab-contact" class="tab-content">
+                        <h2 class="text-3xl font-black mb-2">Contact Section</h2>
+                        <p class="text-slate-400 mb-8">Edit contact information</p>
+                        <div class="bg-surface-dark border border-surface-border rounded-xl p-6">
+                            <div class="grid gap-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Email</label>
+                                        <input id="contactEmail"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="email" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Phone</label>
+                                        <input id="contactPhone"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="tel" placeholder="+66 123 456 789" />
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Line ID</label>
+                                        <input id="contactLine"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" placeholder="@yourlineid" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Location</label>
+                                        <input id="contactLocation"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Headline</label>
+                                    <input id="contactHeadline"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="text" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Subheadline</label>
+                                    <textarea id="contactSubheadline"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                                        rows="2"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Availability
+                                        Text</label>
+                                    <textarea id="contactAvailability"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                                        rows="2"></textarea>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">GitHub
+                                            URL</label>
+                                        <input id="socialGithub"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="url" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">LinkedIn
+                                            URL</label>
+                                        <input id="socialLinkedin"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="url" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Twitter
+                                            URL</label>
+                                        <input id="socialTwitter"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="url" />
+                                    </div>
+                                </div>
+                                <button onclick="saveContact()"
+                                    class="w-full py-2.5 bg-primary hover:bg-primary/90 rounded-lg text-sm font-bold mt-2">Save
+                                    Contact</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div id="tab-settings" class="tab-content">
+                        <h2 class="text-3xl font-black mb-2">Site Settings</h2>
+                        <p class="text-slate-400 mb-8">General site configuration</p>
+                        <div class="bg-surface-dark border border-surface-border rounded-xl p-6">
+                            <div class="grid gap-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Site Name</label>
+                                        <input id="settingsSiteName"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" />
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-400 mb-1">Primary
+                                            Color</label>
+                                        <input id="settingsPrimaryColor"
+                                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                            type="text" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Resume URL</label>
+                                    <input id="settingsResumeUrl"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="url" />
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-400 mb-1">Footer Text</label>
+                                    <input id="settingsFooterText"
+                                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                                        type="text" />
+                                </div>
+                                <button onclick="saveSettings()"
+                                    class="w-full py-2.5 bg-primary hover:bg-primary/90 rounded-lg text-sm font-bold mt-2">Save
+                                    Settings</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Toast -->
+            <div id="toast"
+                class="hidden absolute bottom-6 right-6 bg-surface-dark border border-surface-border px-4 py-3 rounded-lg shadow-xl flex items-center gap-3">
+                <span id="toastIcon" class="material-symbols-outlined text-green-400">check_circle</span>
+                <span id="toastMessage" class="text-sm font-medium">Saved</span>
+            </div>
+        </main>
+    </div>
+
+    <!-- Skill Modal -->
+    <div id="skillModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div class="bg-surface-dark rounded-xl max-w-md w-full shadow-2xl border border-surface-border">
+            <div class="px-6 py-4 border-b border-surface-border flex justify-between items-center">
+                <h3 id="skillModalTitle" class="text-lg font-bold">Add Skill</h3>
+                <button onclick="closeSkillModal()" class="text-slate-400 hover:text-white"><span
+                        class="material-symbols-outlined">close</span></button>
+            </div>
+            <form id="skillForm" class="p-6 flex flex-col gap-4">
+                <input type="hidden" id="skillId" />
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Skill Name</label>
+                    <input id="skillName" required
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" />
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Category</label>
+                    <select id="skillCategory"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm">
+                        <option value="frontend">Frontend</option>
+                        <option value="backend">Backend</option>
+                        <option value="devops">DevOps</option>
+                        <option value="tools">Tools</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Icon (Material Symbol)</label>
+                    <input id="skillIcon"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" placeholder="code" />
+                </div>
+                <div class="flex gap-3 mt-2">
+                    <button type="button" onclick="closeSkillModal()"
+                        class="flex-1 py-2.5 border border-surface-border rounded-lg text-sm font-bold">Cancel</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-primary rounded-lg text-sm font-bold">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div
+            class="bg-surface-dark rounded-xl max-w-lg w-full shadow-2xl border border-surface-border max-h-[90vh] overflow-y-auto">
+            <div
+                class="px-6 py-4 border-b border-surface-border flex justify-between items-center sticky top-0 bg-surface-dark">
+                <h3 id="projectModalTitle" class="text-lg font-bold">Add Project</h3>
+                <button onclick="closeProjectModal()" class="text-slate-400 hover:text-white"><span
+                        class="material-symbols-outlined">close</span></button>
+            </div>
+            <form id="projectForm" class="p-6 flex flex-col gap-4">
+                <input type="hidden" id="projectId" />
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Title</label>
+                    <input id="projectTitle" required
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" />
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Category</label>
+                    <input id="projectCategory"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" placeholder="Full-Stack Project" />
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Short Description (แสดงบน
+                        Card)</label>
+                    <textarea id="projectDescription" required
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                        rows="2"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Full Description (แสดงใน
+                        Popup)</label>
+                    <textarea id="projectFullDescription"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                        rows="4" placeholder="รายละเอียดเพิ่มเติมเกี่ยวกับโปรเจค..."></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Cover Image URL (รูปหลัก)</label>
+                    <input id="projectImage"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" placeholder="/public/images/projects/project1.jpg" />
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Gallery Images (1 URL
+                        ต่อบรรทัด)</label>
+                    <textarea id="projectImages"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none font-mono text-xs"
+                        rows="3" placeholder="https://example.com/image1.jpg
+https://example.com/image2.jpg"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Tags (comma separated)</label>
+                    <input id="projectTags"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" placeholder="React, Node.js" />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 mb-1">GitHub URL (ไม่บังคับ)</label>
+                        <input id="projectGithub"
+                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                            type="text" placeholder="https://github.com/..." />
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 mb-1">Live URL (ไม่บังคับ)</label>
+                        <input id="projectLive"
+                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                            type="text" placeholder="https://..." />
+                    </div>
+                </div>
+                <div class="flex gap-3 mt-2">
+                    <button type="button" onclick="closeProjectModal()"
+                        class="flex-1 py-2.5 border border-surface-border rounded-lg text-sm font-bold">Cancel</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-primary rounded-lg text-sm font-bold">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Experience Modal -->
+    <div id="experienceModal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div
+            class="bg-surface-dark rounded-xl max-w-lg w-full shadow-2xl border border-surface-border max-h-[90vh] overflow-y-auto">
+            <div
+                class="px-6 py-4 border-b border-surface-border flex justify-between items-center sticky top-0 bg-surface-dark">
+                <h3 id="experienceModalTitle" class="text-lg font-bold">Add Experience</h3>
+                <button onclick="closeExperienceModal()" class="text-slate-400 hover:text-white"><span
+                        class="material-symbols-outlined">close</span></button>
+            </div>
+            <form id="experienceForm" class="p-6 flex flex-col gap-4">
+                <input type="hidden" id="experienceId" />
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Job Title</label>
+                    <input id="experienceTitle" required
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" />
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Company</label>
+                    <input id="experienceCompany" required
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 mb-1">Period</label>
+                        <input id="experiencePeriod" required
+                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                            type="text" placeholder="2021 - Present" />
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 mb-1">Current Role</label>
+                        <select id="experienceCurrent"
+                            class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm">
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Icon (Material Symbol)</label>
+                    <input id="experienceIcon"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" placeholder="terminal" />
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Highlights (one per line)</label>
+                    <textarea id="experienceHighlights"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm resize-none"
+                        rows="4" placeholder="Led a team of 5 developers..."></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Skills (comma separated)</label>
+                    <input id="experienceSkills"
+                        class="w-full bg-background-dark border border-surface-border rounded-lg px-3 py-2 text-sm"
+                        type="text" placeholder="Go, Kubernetes, Docker" />
+                </div>
+                <div class="flex gap-3 mt-2">
+                    <button type="button" onclick="closeExperienceModal()"
+                        class="flex-1 py-2.5 border border-surface-border rounded-lg text-sm font-bold">Cancel</button>
+                    <button type="submit" class="flex-1 py-2.5 bg-primary rounded-lg text-sm font-bold">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/js/admin.js"></script>
+</body>
+
+</html>

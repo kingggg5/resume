@@ -1,0 +1,462 @@
+{
+  "profile": {
+    "name": "Jesadakorn Pipitakun",
+    "title": "Full Stack Developer",
+    "bio": "Building scalable web applications and intuitive user interfaces.",
+    "avatar": "/public/images/profile/avatar.jpg",
+    "toeicScore": 700
+  },
+  "hero": {
+    "headline": "Full-Stack Developer",
+    "subheadline": "I'm Jesadakorn, a Full-Stack Developer and Web Developer with a passion for creating websites and web applications. I am able to work on multiple projects at the same time. I have 4 months of experience as a web developer. I can create websites from design, make them responsive, and integrate APIs.",
+    "statusText": "Open to work",
+    "statusActive": true,
+    "ctaPrimary": "View My Work",
+    "ctaSecondary": "Get in Touch",
+    "heroImage": "/public/images/profile/avatar.jpg"
+  },
+  "about": {
+    "tagline": "Full-Stack Developer",
+    "headline": "Building bridges between backend logic and frontend magic.",
+    "description": "From responsive front-end components to scalable backend APIs. I specialize in translating Figma designs into fully functional websites and building clean, maintainable code.",
+    "journey": "I started my journey learning web development and have since graduated to building complete full-stack applications for enterprise clients.",
+    "philosophy": "My focus isn't just on writing code, but on the impact it creates for users.",
+    "quote": "The best code is the code you don't have to write. Simplicity is the ultimate sophistication.",
+    "currentFocus": "Currently exploring modern JavaScript frameworks and cloud architectures.",
+    "metrics": {
+      "toeicScore": "700",
+      "gitCommits": "500+",
+      "projectsCompleted": "10+"
+    }
+  },
+  "skills": [
+    {
+      "id": "1",
+      "name": "TypeScript",
+      "category": "frontend",
+      "icon": "javascript"
+    },
+    {
+      "id": "2",
+      "name": "JavaScript",
+      "category": "frontend",
+      "icon": "code_blocks"
+    },
+    {
+      "id": "3",
+      "name": "HTML5",
+      "category": "frontend",
+      "icon": "html"
+    },
+    {
+      "id": "4",
+      "name": "SCSS",
+      "category": "frontend",
+      "icon": "css"
+    },
+    {
+      "id": "5",
+      "name": "Angular",
+      "category": "frontend",
+      "icon": "deployed_code"
+    },
+    {
+      "id": "6",
+      "name": "React.js",
+      "category": "frontend",
+      "icon": "code_blocks"
+    },
+    {
+      "id": "7",
+      "name": "Vue.js",
+      "category": "frontend",
+      "icon": "view_quilt"
+    },
+    {
+      "id": "8",
+      "name": "Angular Material",
+      "category": "frontend",
+      "icon": "widgets"
+    },
+    {
+      "id": "9",
+      "name": "Bootstrap",
+      "category": "frontend",
+      "icon": "dashboard"
+    },
+    {
+      "id": "10",
+      "name": "Node.js",
+      "category": "backend",
+      "icon": "terminal"
+    },
+    {
+      "id": "11",
+      "name": "Express.js",
+      "category": "backend",
+      "icon": "hub"
+    },
+    {
+      "id": "12",
+      "name": "Laravel",
+      "category": "backend",
+      "icon": "integration_instructions"
+    },
+    {
+      "id": "13",
+      "name": "PHP",
+      "category": "backend",
+      "icon": "code"
+    },
+    {
+      "id": "14",
+      "name": "WordPress",
+      "category": "backend",
+      "icon": "article"
+    },
+    {
+      "id": "15",
+      "name": "MongoDB",
+      "category": "backend",
+      "icon": "database"
+    },
+    {
+      "id": "16",
+      "name": "MySQL",
+      "category": "backend",
+      "icon": "storage"
+    },
+    {
+      "id": "17",
+      "name": "SQL Server",
+      "category": "backend",
+      "icon": "table_chart"
+    },
+    {
+      "id": "18",
+      "name": "Git",
+      "category": "devops",
+      "icon": "commit"
+    },
+    {
+      "id": "19",
+      "name": "GitHub",
+      "category": "devops",
+      "icon": "code"
+    },
+    {
+      "id": "20",
+      "name": "Docker",
+      "category": "devops",
+      "icon": "deployed_code"
+    },
+    {
+      "id": "21",
+      "name": "Postman",
+      "category": "tools",
+      "icon": "send"
+    },
+    {
+      "id": "22",
+      "name": "Figma",
+      "category": "tools",
+      "icon": "draw"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Amnesty",
+      "description": "Managed and maintained the organization’s website using WordPress CMS, ensuring content accuracy and site stability.",
+      "fullDescription": "Managed and maintained the organization’s website using WordPress CMS, ensuring content accuracy and site stability. Performed comprehensive content updates, including creating, editing, and optimizing web pages and blog posts.",
+      "image": "/public/images/projects/project1.png",
+      "images": [
+        "/public/images/projects/project1.png",
+        "/public/images/projects/project1-2.png",
+        "/public/images/projects/project1-3.png"
+      ],
+      "tags": [
+        "CMS",
+        "Wordpress",
+        "PHP",
+        "JavaScript"
+      ],
+      "category": "Intern Project",
+      "githubUrl": "#",
+      "liveUrl": "https://www.amnesty.or.th/",
+      "featured": true
+    },
+    {
+      "id": "2",
+      "title": "Richmont's",
+      "description": "Developed and maintained a luxury real estate platform using WordPress",
+      "fullDescription": "Developed and maintained a luxury real estate platform using WordPress. Implemented custom site logic and dynamic features using PHP and JavaScript to enhance user interactivity.",
+      "image": "/public/images/projects/project2.png",
+      "images": [
+        "/public/images/projects/project2.png",
+        "/public/images/projects/project2-2.png",
+        "/public/images/projects/project2-3.png"
+      ],
+      "tags": [
+        "CMS",
+        "WordPress",
+        "PHP",
+        "JavaScript"
+      ],
+      "category": "INTERN PROJECT",
+      "githubUrl": "#",
+      "liveUrl": "https://www.richmonts.com/",
+      "featured": true
+    },
+    {
+      "id": "3",
+      "title": "INTERN PROJECT",
+      "description": "Translated high-fidelity mockups from Figma into a pixel-perfect, responsive website, ensuring strict adherence to the UI/UX design and brand guidelines.",
+      "fullDescription": "Translated high-fidelity mockups from Figma into a pixel-perfect, responsive website, ensuring strict adherence to the UI/UX design and brand guidelines. Developed and optimized web features using PHP and JavaScript to enhance site interactivity and backend data management. Managed and maintained site content through WordPress, including architectural updates to pages, custom post types, and dynamic content modules.",
+      "image": "/public/images/projects/project3.png",
+      "images": [
+        "/public/images/projects/project3.png",
+        "/public/images/projects/project3-2.png",
+        "/public/images/projects/project3-3.png"
+      ],
+      "tags": [
+        "CMS",
+        "WordPress",
+        "PHP",
+        "JavaScript"
+      ],
+      "category": "KingBridge Tower",
+      "githubUrl": "#",
+      "liveUrl": "https://www.kingbridgetower.com/",
+      "featured": false
+    },
+    {
+      "title": "Thai Country Club",
+      "category": "INTERN PROJECT",
+      "description": "Developed high-quality web pages by translating complex Figma designs into functional, pixel-perfect layouts, ensuring consistency with the club’s premium branding.",
+      "fullDescription": "Developed high-quality web pages by translating complex Figma designs into functional, pixel-perfect layouts, ensuring consistency with the club’s premium branding. Utilized PHP and JavaScript to create and optimize custom features, specifically for the affiliate and reciprocal clubs directory.",
+      "image": "/public/images/projects/project4.png",
+      "images": [
+        "/public/images/projects/project4.png",
+        "/public/images/projects/project4-2.png"
+      ],
+      "tags": [
+        "CMS",
+        "WordPress",
+        "PHP",
+        "JavaScript"
+      ],
+      "githubUrl": "",
+      "liveUrl": "https://www.thaicountryclub.com/",
+      "id": "mjl22ggeq9rtj2syvst"
+    },
+    {
+      "title": "Aleenta Retreat Chiang Mai",
+      "category": "INTERN PROJECT",
+      "description": "transformed complex Figma designs into a fully functional and responsive website for a luxury retreat.",
+      "fullDescription": "transformed complex Figma designs into a fully functional and responsive website for a luxury retreat Optimized the frontend for a seamless mobile-first experience, ensuring fast loading speeds for high-resolution imagery.",
+      "image": "/public/images/projects/project5.png",
+      "images": [
+        "/public/images/projects/project5.png"
+      ],
+      "tags": [
+        "CMS",
+        "WordPress",
+        "PHP",
+        "JavaScript"
+      ],
+      "githubUrl": "",
+      "liveUrl": "https://www.aleenta.com/chiang-mai/",
+      "id": "mjl29dvddjbba2go2g"
+    },
+    {
+      "title": "URL SHORTEN",
+      "category": "PERSONAL PROJECT",
+      "description": "A small URL shortener built with Next.js and TypeScript. It uses MongoDB (via Mongoose) to store shortened links.",
+      "fullDescription": "A small URL shortener built with Next.js and TypeScript. It uses MongoDB (via Mongoose) to store shortened links.",
+      "image": "/public/images/projects/project6.png",
+      "images": [
+        "/public/images/projects/project6.png"
+      ],
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
+        "MongoDB"
+      ],
+      "githubUrl": "https://github.com/kingggg5/urlshort",
+      "liveUrl": "",
+      "id": "mjl4zqvui11o00agt4p"
+    },
+    {
+      "title": "WEB INFORMATION",
+      "category": "PERSONAL PROJECT",
+      "description": "Node.js and Express-based application that primarily focuses on user authentication and session management. ",
+      "fullDescription": "Node.js and Express-based application that primarily focuses on user authentication and session management. It uses MongoDB (via Mongoose) for data storage, including user information. The project includes static pages for user registration, login, and profile management.",
+      "image": "/public/images/projects/project7.png",
+      "images": [
+        "/public/images/projects/project7.png",
+        "/public/images/projects/project7-2.png"
+      ],
+      "tags": [
+        "JavaScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "githubUrl": "https://github.com/kingggg5/web_information",
+      "liveUrl": "",
+      "id": "mjl5cst5i23g4zkvh5"
+    },
+    {
+      "title": "XO GAME",
+      "category": "PERSONAL PROJECT",
+      "description": "The XO Game (also known as Tic-Tac-Toe) is a classic 3x3 grid game where two players (X and O) take turns marking cells in a grid.",
+      "fullDescription": "The XO Game (also known as Tic-Tac-Toe) is a classic 3x3 grid game where two players (X and O) take turns marking cells in a grid.",
+      "image": "/public/images/projects/project8.png",
+      "images": [
+        "/public/images/projects/project8.png"
+      ],
+      "tags": [
+        "JavaScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "githubUrl": "https://github.com/kingggg5/xoxo",
+      "liveUrl": "",
+      "id": "mjl6ghqlu7us12y7bld"
+    },
+    {
+      "title": "Product Catalog",
+      "category": "PERSONAL PROJECT",
+      "description": "A simple product catalog with categories, filters, search and pagination.",
+      "fullDescription": "A simple product catalog with categories, filters, search and pagination.",
+      "image": "/public/images/projects/project9.png",
+      "images": [
+        "/public/images/projects/project9.png"
+      ],
+      "tags": [
+        "PHP",
+        "Node.js",
+        "MySQL",
+        "Laravel",
+        "Vue"
+      ],
+      "githubUrl": "https://github.com/kingggg5/product-catalog",
+      "liveUrl": "",
+      "id": "mjl6jy053czauq21kyf"
+    },
+    {
+      "title": "COMPANY WEBSITE",
+      "category": "PERSONAL PROJECT",
+      "description": "Management System developed using the MEAN Stack.",
+      "fullDescription": "Management System developed using the MEAN Stack. It supports creating, editing, deleting, and rearranging positions via a Drag & Drop interface, simplifying chain-of-command management and providing a clear organizational overview.",
+      "image": "/public/images/projects/project10.png",
+      "images": [
+        "/public/images/projects/project10.png",
+        "/public/images/projects/project10-2.png",
+        "/public/images/projects/project10-3.png"
+      ],
+      "tags": [
+        "Angular",
+        "SCSS",
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "githubUrl": "https://github.com/kingggg5/company_web",
+      "liveUrl": "",
+      "id": "mjl767y2kcnt0kafnm"
+    }
+  ],
+  "experience": [
+    {
+      "id": "1",
+      "title": "Full-Stack Developer",
+      "company": "VIVI23",
+      "period": "December 2025 - Present",
+      "icon": "terminal",
+      "isCurrent": true,
+      "highlights": [
+        "Developing and maintaining full-stack web applications",
+        "Building scalable APIs and integrating with various services",
+        "Collaborating with cross-functional teams to deliver high-quality products"
+      ],
+      "skills": [
+        "Vue",
+        "PHP",
+        "Laravel",
+        "Node.js",
+        "JavaScript",
+        "MongoDB",
+        "MySql"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Web Developer - Intern",
+      "company": "KOS Design",
+      "period": "November 2024 - March 2025",
+      "icon": "code_blocks",
+      "isCurrent": false,
+      "highlights": [
+        "Translated Figma designs into fully functional websites and ensured responsiveness across various devices and screen sizes",
+        "Updated and migrated data from old websites to new ones, maintaining consistency and accuracy",
+        "Made improvements and fixed issues on websites based on feedback, ensuring ease of use for users",
+        "Collaborated with the development team to implement new features and optimize website performance"
+      ],
+      "skills": [
+        "PHP",
+        "JavaScript",
+        "SCSS",
+        "WordPress",
+        "Figma",
+        "CMS"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "1",
+      "degree": "B.Sc. in Computer Science",
+      "institution": "Rajamangala University of Technology Krungthep",
+      "period": "2021 - 2025",
+      "icon": "school",
+      "highlights": [
+        "Major in Computer Science",
+        "TOEIC Score: 700"
+      ]
+    }
+  ],
+  "contact": {
+    "email": "addking27@gmail.com",
+    "phone": "+66 64 182 1433",
+    "lineId": "@king51131",
+    "location": "Bangkok, Thailand / Remote",
+    "headline": "Get In Touch",
+    "subheadline": "Have a project in mind or just want to say hi? I'm always open to discussing new opportunities.",
+    "ctaText": "Let's build something together",
+    "availability": "I'm currently available for contact work and open to full-time opportunities. If you have a question or just want to connect, feel free to reach out.",
+    "socials": {
+      "github": "https://github.com/kingggg5",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com"
+    }
+  },
+  "settings": {
+    "siteName": "Portfolio",
+    "primaryColor": "#137fec",
+    "darkMode": true,
+    "resumeUrl": "/public/resume.pdf",
+    "footerText": "© 2026 Jesadakorn Pipitakun. Built with clean code and passion."
+  },
+  "stats": {
+    "totalProjects": 10,
+    "toeicScore": "700",
+    "lastDeployment": "2h ago"
+  }
+}
